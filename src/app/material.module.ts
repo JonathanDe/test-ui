@@ -1,0 +1,23 @@
+import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+
+
+const imports = [
+  BrowserAnimationsModule,
+  MatIconModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatMenuModule
+];
+
+@NgModule({
+  imports,
+  exports: imports
+})
+export class MaterialModule {}
