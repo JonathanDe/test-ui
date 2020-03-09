@@ -4,9 +4,10 @@
       <h1>{{data.name}}</h1>
       <p><span>{{data.published_date}}</span> in {{data.category}}</p>
     </div>
-    <p>{{data.description}}</p>
+    <p *ngIf="!checkNewVote()">{{data.description}}</p>
+    <p *ngIf="checkNewVote()">Thank you for voting!</p>
     <div class="vote-card-content-actions">
-      <mat-button-toggle-group #votesGroup="matButtonToggleGroup" (change)="voteInput($event)">
+      <mat-button-toggle-group #votesGroup="matButtonToggleGroup" (change)="voteInput($event)" *ngIf="!checkNewVote()">
         <mat-button-toggle value="thumbUp" class="green-button">
           <mat-icon>thumb_up</mat-icon>
         </mat-button-toggle>
@@ -15,7 +16,8 @@
         </mat-button-toggle>
       </mat-button-toggle-group>
 
-      <button mat-button class="outline-button">Vote now</button>
+      <button mat-button class="outline-button" (click)="sendVote(data.id)" *ngIf="!checkNewVote()">Vote now</button>
+      <button mat-button class="outline-button" (click)="voteAgain()" *ngIf="checkNewVote()">Vote again</button>
     </div>
   </div>
   <div class="vote-card-results">
