@@ -1,0 +1,118 @@
+.vote-card-container {
+  background-color: $color-white;
+  width: 100%;
+  height: 550px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $color-white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @include responsive(phone) {
+    background-position: center;
+  }
+
+  .vote-card-content {
+    padding: 3em 3em 7em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-weight: 300;
+
+    p {
+      font-size: 1.1em;
+    }
+
+    &-header {
+      padding-bottom: 1em;
+
+      h1 {
+        font-weight: 300;
+        font-size: 2.5em;
+      }
+
+      p {
+        font-size: 0.8em;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+
+    &-actions {
+      padding-top: 1.5em;
+
+      mat-button-toggle-group {
+        border-radius: 0px;
+
+        mat-button-toggle {
+          margin-right: 1em;
+
+          &:first-child {
+            margin-right: 0.7em;
+          }
+        }
+      }
+
+      .outline-button {
+        font-weight: 300;
+        font-size: 1em;
+        padding: .2em 1em;
+      }
+    }
+  }
+
+  .vote-card-results {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3.5em;
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: auto;
+      padding: 0 1em;
+      z-index: 2;
+
+      &-green, &-orange {
+        display: flex;
+        font-weight: 300;
+        font-size: 1.5em;
+        align-items: center;
+
+        span {
+          padding: 0 .4em;
+        }
+
+        .mat-icon {
+          height: 100%;
+          width: 100%;
+          font-size: 1.5em;
+        }
+      }
+    }
+
+    .progress-bar {
+      display: flex;
+      width: 100%;
+      position: absolute;
+      height: 100%;
+      z-index: 1;
+
+      &-green {
+        background-color: rgba($color: $color-green, $alpha: 0.7);
+      }
+
+      &-orange {
+        background-color: rgba($color: $color-orange, $alpha: 0.7);
+      }
+    }
+  }
+}
