@@ -1,7 +1,10 @@
-<div class="container votes-section">
+<div class="votes-section">
   <div class="row">
-    <div class="col">
-      <app-vote-card></app-vote-card>
+    <h1>Votes</h1>
+  </div>
+  <div class="row">
+    <div class="votes-section-card">
+      <app-vote-card *ngFor="let item of data" [data]="item"></app-vote-card>
     </div>
   </div>
 </div>

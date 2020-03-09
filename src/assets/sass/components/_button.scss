@@ -6,3 +6,9 @@
   color: $color-white;
   background-color: $color-green;
 }
+
+.outline-button {
+  border: 1px solid $color-white!important;
+  color: $color-white;
+  border-radius: 0px!important;
+}

@@ -1,1 +1,37 @@
-<p>vote-card works!</p>
+<div class="vote-card-container" [ngStyle]="{'background-image': 'url(' + data.image + ')'}">
+  <div class="vote-card-content">
+    <div class="vote-card-content-header">
+      <h1>{{data.name}}</h1>
+      <p><span>{{data.published_date}}</span> in {{data.category}}</p>
+    </div>
+    <p>{{data.description}}</p>
+    <div class="vote-card-content-actions">
+      <mat-button-toggle-group #votesGroup="matButtonToggleGroup" (change)="voteInput($event)">
+        <mat-button-toggle value="thumbUp" class="green-button">
+          <mat-icon>thumb_up</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="thumbDown" class="orange-button">
+          <mat-icon>thumb_down</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <button mat-button class="outline-button">Vote now</button>
+    </div>
+  </div>
+  <div class="vote-card-results">
+    <div class="progress-text">
+      <div class="progress-text-green">
+        <mat-icon>thumb_up</mat-icon>
+        <span>{{positiveVotes | number}}%</span>
+      </div>
+      <div class="progress-text-orange">
+        <span>{{negativeVotes | number }}%</span>
+        <mat-icon>thumb_down</mat-icon>
+      </div>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-bar-green" [ngStyle]="{'flex-basis': positiveVotes + '%'}"></div>
+      <div class="progress-bar-orange" [ngStyle]="{'flex-basis': negativeVotes + '%'}"></div>
+    </div>
+  </div>
+</div>
